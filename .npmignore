@@ -1,0 +1,28 @@
+# Source files (distributed as compiled)
+projects/
+src/
+*.ts
+!*.d.ts
+
+# Config files
+tsconfig*.json
+angular.json
+karma.conf.js
+.editorconfig
+.gitignore
+.prettierrc
+
+# Test files
+*.spec.ts
+coverage/
+
+# IDE
+.idea/
+.vscode/
+
+# Build artifacts not needed
+.angular/
+out-tsc/
+
+# Docs source
+docs/

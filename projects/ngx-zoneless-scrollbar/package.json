@@ -1,0 +1,39 @@
+{
+  "name": "ngx-zoneless-scrollbar",
+  "version": "1.0.0",
+  "description": "A lightweight, zoneless-compatible scrollbar component for Angular. Uses native browser scrolling with CSS-styled scrollbars, designed for Angular's zoneless change detection mode.",
+  "keywords": [
+    "angular",
+    "scrollbar",
+    "zoneless",
+    "native-scrollbar",
+    "custom-scrollbar",
+    "angular-scrollbar",
+    "ngx-scrollbar",
+    "signals",
+    "standalone",
+    "css-scrollbar",
+    "resize-observer"
+  ],
+  "author": "Legalfina",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Legalfina/ngx-zoneless-scrollbar"
+  },
+  "bugs": {
+    "url": "https://github.com/Legalfina/ngx-zoneless-scrollbar/issues"
+  },
+  "homepage": "https://github.com/Legalfina/ngx-zoneless-scrollbar#readme",
+  "peerDependencies": {
+    "@angular/common": ">=19.0.0",
+    "@angular/core": ">=19.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}
