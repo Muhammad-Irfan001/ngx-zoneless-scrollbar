@@ -20,7 +20,7 @@ Angular's zoneless mode (`provideZonelessChangeDetection()`) offers significant 
 ✅ **Signal-based** - Exposes scrollability state as Angular signals  
 ✅ **Touch Friendly** - Supports momentum scrolling on mobile devices  
 ✅ **Customizable** - Easy to style with CSS variables  
-✅ **Standalone** - Works with Angular's standalone components  
+✅ **Standalone** - Works with Angular's standalone components
 
 ## Installation
 
@@ -44,11 +44,13 @@ import { NgxZonelessScrollbar } from 'ngx-zoneless-scrollbar';
       <div>Your scrollable content here</div>
     </ngx-zoneless-scrollbar>
   `,
-  styles: [`
-    ngx-zoneless-scrollbar {
-      height: 400px; /* Required: Set a height for scrolling to work */
-    }
-  `]
+  styles: [
+    `
+      ngx-zoneless-scrollbar {
+        height: 400px; /* Required: Set a height for scrolling to work */
+      }
+    `,
+  ],
 })
 export class MyComponent {}
 ```
@@ -63,15 +65,12 @@ import { NgxZonelessScrollbar, ScrollbarUpdateEvent } from 'ngx-zoneless-scrollb
   standalone: true,
   imports: [NgxZonelessScrollbar],
   template: `
-    <ngx-zoneless-scrollbar
-      #scrollbar
-      (afterUpdate)="onScrollbarUpdate($event)"
-    >
+    <ngx-zoneless-scrollbar #scrollbar (afterUpdate)="onScrollbarUpdate($event)">
       <div>Your content</div>
     </ngx-zoneless-scrollbar>
-    
+
     <p *ngIf="scrollbar.isVerticallyScrollable()">Content is scrollable!</p>
-  `
+  `,
 })
 export class MyComponent {
   onScrollbarUpdate(event: ScrollbarUpdateEvent) {
@@ -94,9 +93,9 @@ import { NgxZonelessScrollbar } from 'ngx-zoneless-scrollbar';
     <ngx-zoneless-scrollbar #scrollbar>
       <div>Your content</div>
     </ngx-zoneless-scrollbar>
-    
+
     <button (click)="scrollToTop()">Scroll to Top</button>
-  `
+  `,
 })
 export class MyComponent {
   @ViewChild('scrollbar') scrollbar!: NgxZonelessScrollbar;
@@ -111,30 +110,30 @@ export class MyComponent {
 
 ### Inputs
 
-| Input | Type | Default | Description |
-| ----- | ---- | ------- | ----------- |
+| Input         | Type                                           | Default      | Description      |
+| ------------- | ---------------------------------------------- | ------------ | ---------------- |
 | `orientation` | `'vertical' &#124; 'horizontal' &#124; 'auto'` | `'vertical'` | Scroll direction |
 
 ### Outputs
 
-| Output | Type | Description |
-| ------ | ---- | ----------- |
+| Output        | Type                   | Description                            |
+| ------------- | ---------------------- | -------------------------------------- |
 | `afterUpdate` | `ScrollbarUpdateEvent` | Emits when scrollability state changes |
 
 ### Public Properties (Signals)
 
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `isVerticallyScrollable` | `Signal<boolean>` | Whether content is vertically scrollable |
+| Property                   | Type              | Description                                |
+| -------------------------- | ----------------- | ------------------------------------------ |
+| `isVerticallyScrollable`   | `Signal<boolean>` | Whether content is vertically scrollable   |
 | `isHorizontallyScrollable` | `Signal<boolean>` | Whether content is horizontally scrollable |
 
 ### Public Methods
 
-| Method | Description |
-| ------ | ----------- |
-| `scrollTo(options: ScrollToOptions)` | Scroll to a specific position |
-| `update()` | Manually trigger a scrollability check |
-| `viewportElement` | Get the native viewport element |
+| Method                               | Description                            |
+| ------------------------------------ | -------------------------------------- |
+| `scrollTo(options: ScrollToOptions)` | Scroll to a specific position          |
+| `update()`                           | Manually trigger a scrollability check |
+| `viewportElement`                    | Get the native viewport element        |
 
 ## Styling
 
@@ -146,11 +145,11 @@ Customize the scrollbar appearance using CSS:
 ngx-zoneless-scrollbar {
   /* Scrollbar size */
   --scrollbar-size: 8px;
-  
+
   /* Track styling */
   --scrollbar-track-color: transparent;
   --scrollbar-track-radius: 4px;
-  
+
   /* Thumb styling */
   --scrollbar-thumb-color: rgba(0, 0, 0, 0.3);
   --scrollbar-thumb-color-hover: rgba(0, 0, 0, 0.5);
@@ -188,19 +187,13 @@ If you're migrating from `ngx-scrollbar` due to zoneless compatibility issues:
 
 ```html
 <!-- Before (ngx-scrollbar) -->
-<ng-scrollbar 
-  #scrollbar="ngScrollbar"
-  (afterUpdate)="onUpdate(scrollbar.adapter.isVerticallyScrollable())"
->
-  <content/>
+<ng-scrollbar #scrollbar="ngScrollbar" (afterUpdate)="onUpdate(scrollbar.adapter.isVerticallyScrollable())">
+  <content />
 </ng-scrollbar>
 
 <!-- After (ngx-zoneless-scrollbar) -->
-<ngx-zoneless-scrollbar 
-  #scrollbar
-  (afterUpdate)="onUpdate($event.isVerticallyScrollable)"
->
-  <content/>
+<ngx-zoneless-scrollbar #scrollbar (afterUpdate)="onUpdate($event.isVerticallyScrollable)">
+  <content />
 </ngx-zoneless-scrollbar>
 ```
 
