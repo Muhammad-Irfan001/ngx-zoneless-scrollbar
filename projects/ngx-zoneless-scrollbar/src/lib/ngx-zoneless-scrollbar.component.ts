@@ -59,40 +59,40 @@ import { ScrollbarOrientation, ScrollbarUpdateEvent } from './ngx-zoneless-scrol
         -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
         overscroll-behavior: contain; /* Prevent scroll chaining */
 
-        /* Firefox scrollbar styling */
+        /* Inherit CSS custom properties from :host */
         scrollbar-width: thin;
-        scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+        scrollbar-color: var(--scrollbar-thumb-color, rgba(0, 0, 0, 0.3)) var(--scrollbar-track-color, transparent);
       }
 
       /* Custom scrollbar styling for webkit browsers (Chrome, Safari, Edge) */
       .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar {
-        width: var(--scrollbar-size);
-        height: var(--scrollbar-size);
+        width: var(--scrollbar-size, 7px);
+        height: var(--scrollbar-size, 7px);
       }
 
       .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-track {
-        background: var(--scrollbar-track-color);
-        border-radius: var(--scrollbar-track-radius);
+        background: var(--scrollbar-track-color, transparent);
+        border-radius: var(--scrollbar-track-radius, 4px);
       }
 
       .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-thumb {
-        background: var(--scrollbar-thumb-color);
-        border-radius: var(--scrollbar-thumb-radius);
-        border: var(--scrollbar-thumb-border);
-        box-shadow: var(--scrollbar-thumb-shadow);
+        background: var(--scrollbar-thumb-color, rgba(0, 0, 0, 0.3));
+        border-radius: var(--scrollbar-thumb-radius, 4px);
+        border: var(--scrollbar-thumb-border, 0);
+        box-shadow: var(--scrollbar-thumb-shadow, unset);
         transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
       }
 
       .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-thumb:hover {
-        background: var(--scrollbar-thumb-color-hover);
-        border: var(--scrollbar-thumb-border-hover);
-        box-shadow: var(--scrollbar-thumb-shadow-hover);
+        background: var(--scrollbar-thumb-color-hover, rgba(0, 0, 0, 0.5));
+        border: var(--scrollbar-thumb-border-hover, 0);
+        box-shadow: var(--scrollbar-thumb-shadow-hover, unset);
       }
 
       .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-thumb:active {
-        background: var(--scrollbar-thumb-color-hover);
-        border: var(--scrollbar-thumb-border-hover);
-        box-shadow: var(--scrollbar-thumb-shadow-hover);
+        background: var(--scrollbar-thumb-color-hover, rgba(0, 0, 0, 0.5));
+        border: var(--scrollbar-thumb-border-hover, 0);
+        box-shadow: var(--scrollbar-thumb-shadow-hover, unset);
       }
 
       /* Orientation-specific overflow behavior */
