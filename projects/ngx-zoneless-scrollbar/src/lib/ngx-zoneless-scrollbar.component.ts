@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, input, OnDestroy, output, signal, ViewChild, WritableSignal } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, input, OnDestroy, output, signal, ViewChild, ViewEncapsulation, WritableSignal } from '@angular/core';
 import { ScrollbarOrientation, ScrollbarUpdateEvent } from './ngx-zoneless-scrollbar.models';
 
 /**
@@ -113,6 +113,7 @@ import { ScrollbarOrientation, ScrollbarUpdateEvent } from './ngx-zoneless-scrol
     `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
   host: {
     '[attr.orientation]': 'orientation()',
   },
