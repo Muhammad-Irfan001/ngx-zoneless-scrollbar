@@ -1,6 +1,6 @@
 {
   "name": "ngx-zoneless-scrollbar",
-  "version": "21.0.20",
+  "version": "21.0.21",
   "description": "A lightweight, zoneless-compatible scrollbar component for Angular. Uses native browser scrolling with CSS-styled scrollbars, designed for Angular's zoneless change detection mode.",
   "keywords": [
     "angular",
