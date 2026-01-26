@@ -5,6 +5,7 @@ Comprehensive Jest tests have been created for the `ngx-zoneless-scrollbar` libr
 ## Test Files Created
 
 1. **[ngx-zoneless-scrollbar.component.spec.ts](projects/ngx-zoneless-scrollbar/src/lib/ngx-zoneless-scrollbar.component.spec.ts)** - 43 comprehensive tests covering:
+
    - Component initialization
    - Orientation inputs (vertical, horizontal, auto)
    - ViewChild references
@@ -25,6 +26,7 @@ Comprehensive Jest tests have been created for the `ngx-zoneless-scrollbar` libr
 ## Installation
 
 Jest and all required dependencies have been installed:
+
 ```bash
 pnpm add -D jest @types/jest jest-preset-angular jest-environment-jsdom ts-node
 ```
@@ -50,6 +52,7 @@ pnpm test:coverage
 ## Test Coverage
 
 The tests cover:
+
 - ✅ Component creation and initialization
 - ✅ Input properties (orientation)
 - ✅ Output events (afterUpdate)
@@ -68,6 +71,7 @@ There's currently a minor configuration issue with the TestBed initialization in
 ## Next Steps
 
 To fix the test environment initialization issue, consider:
+
 1. Checking jest-preset-angular documentation for Angular 19 compatibility
 2. Potentially downgrading to jest@29 for better compatibility with current jest-preset-angular version
 3. Or waiting for jest-preset-angular to release full support for Jest 30

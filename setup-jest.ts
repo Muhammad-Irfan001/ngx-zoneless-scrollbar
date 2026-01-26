@@ -1,15 +1,9 @@
-import 'jest-preset-angular/setup-env/zoneless';
 import { getTestBed } from '@angular/core/testing';
-import {
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting,
-} from '@angular/platform-browser-dynamic/testing';
+import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
+import 'jest-preset-angular/setup-env/zoneless';
 
 // Initialize TestBed
-getTestBed().initTestEnvironment(
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting()
-);
+getTestBed().initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
 
 // Mock ResizeObserver for tests
 global.ResizeObserver = class ResizeObserver {
@@ -35,7 +29,7 @@ Object.defineProperty(window, 'matchMedia', {
 
 // Mock Element.scrollTo for JSDOM
 if (!Element.prototype.scrollTo) {
-  Element.prototype.scrollTo = function(options?: ScrollToOptions | number, y?: number) {
+  Element.prototype.scrollTo = function (options?: ScrollToOptions | number, y?: number) {
     if (typeof options === 'object' && options !== null) {
       if (options.top !== undefined) {
         this.scrollTop = options.top;

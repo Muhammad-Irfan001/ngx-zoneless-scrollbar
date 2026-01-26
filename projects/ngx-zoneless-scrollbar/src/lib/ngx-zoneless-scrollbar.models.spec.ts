@@ -1,10 +1,10 @@
-import { ScrollbarUpdateEvent, ScrollbarOrientation } from './ngx-zoneless-scrollbar.models';
+import { ScrollbarOrientation, ScrollbarUpdateEvent } from './ngx-zoneless-scrollbar.models';
 
 describe('ScrollbarUpdateEvent', () => {
   it('should define the correct interface structure', () => {
     const event: ScrollbarUpdateEvent = {
       isVerticallyScrollable: true,
-      isHorizontallyScrollable: false
+      isHorizontallyScrollable: false,
     };
 
     expect(event.isVerticallyScrollable).toBe(true);
@@ -14,7 +14,7 @@ describe('ScrollbarUpdateEvent', () => {
   it('should accept both boolean values as true', () => {
     const event: ScrollbarUpdateEvent = {
       isVerticallyScrollable: true,
-      isHorizontallyScrollable: true
+      isHorizontallyScrollable: true,
     };
 
     expect(event.isVerticallyScrollable).toBe(true);
@@ -24,7 +24,7 @@ describe('ScrollbarUpdateEvent', () => {
   it('should accept both boolean values as false', () => {
     const event: ScrollbarUpdateEvent = {
       isVerticallyScrollable: false,
-      isHorizontallyScrollable: false
+      isHorizontallyScrollable: false,
     };
 
     expect(event.isVerticallyScrollable).toBe(false);
@@ -37,7 +37,7 @@ describe('ScrollbarUpdateEvent', () => {
 
     const event = createEvent({
       isVerticallyScrollable: true,
-      isHorizontallyScrollable: false
+      isHorizontallyScrollable: false,
     });
 
     expect(event).toBeDefined();
@@ -90,7 +90,7 @@ describe('ScrollbarOrientation', () => {
 
   it('should be usable in arrays', () => {
     const validOrientations: ScrollbarOrientation[] = ['vertical', 'horizontal', 'auto'];
-    
+
     expect(validOrientations).toHaveLength(3);
     expect(validOrientations).toContain('vertical');
     expect(validOrientations).toContain('horizontal');
@@ -103,12 +103,12 @@ describe('Models Integration', () => {
     // Use a function to avoid TypeScript const type narrowing
     const getOrientation = (): ScrollbarOrientation => 'vertical';
     const orientation = getOrientation();
-    
+
     const isVertical = orientation === 'vertical' || orientation === 'auto';
     const isHorizontal = orientation === 'horizontal' || orientation === 'auto';
     const updateEvent: ScrollbarUpdateEvent = {
       isVerticallyScrollable: isVertical,
-      isHorizontallyScrollable: isHorizontal
+      isHorizontallyScrollable: isHorizontal,
     };
 
     expect(updateEvent.isVerticallyScrollable).toBe(true);
@@ -117,11 +117,11 @@ describe('Models Integration', () => {
 
   it('should handle auto orientation correctly', () => {
     const orientation: ScrollbarOrientation = 'auto';
-    
+
     // Simulate a scenario where both directions are scrollable
     const updateEvent: ScrollbarUpdateEvent = {
       isVerticallyScrollable: true,
-      isHorizontallyScrollable: true
+      isHorizontallyScrollable: true,
     };
 
     expect(updateEvent.isVerticallyScrollable).toBe(true);

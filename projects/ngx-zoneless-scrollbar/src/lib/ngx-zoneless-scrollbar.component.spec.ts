@@ -1,5 +1,5 @@
+import { Component, Injector, provideExperimentalZonelessChangeDetection, runInInjectionContext } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component, DebugElement, Injector, provideExperimentalZonelessChangeDetection, runInInjectionContext } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { NgxZonelessScrollbar } from './ngx-zoneless-scrollbar.component';
 import { ScrollbarUpdateEvent } from './ngx-zoneless-scrollbar.models';
@@ -9,16 +9,12 @@ import { ScrollbarUpdateEvent } from './ngx-zoneless-scrollbar.models';
   standalone: true,
   imports: [NgxZonelessScrollbar],
   template: `
-    <ngx-zoneless-scrollbar
-      [orientation]="orientation"
-      (afterUpdate)="onUpdate($event)"
-      style="height: 200px; width: 200px;"
-    >
+    <ngx-zoneless-scrollbar [orientation]="orientation" (afterUpdate)="onUpdate($event)" style="height: 200px; width: 200px;">
       <div [style.height.px]="contentHeight" [style.width.px]="contentWidth">
         Test Content
       </div>
     </ngx-zoneless-scrollbar>
-  `
+  `,
 })
 class TestHostComponent {
   orientation: 'vertical' | 'horizontal' | 'auto' = 'vertical';
@@ -39,7 +35,7 @@ describe('NgxZonelessScrollbar', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [NgxZonelessScrollbar],
-      providers: [provideExperimentalZonelessChangeDetection()]
+      providers: [provideExperimentalZonelessChangeDetection()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(NgxZonelessScrollbar);
@@ -69,7 +65,7 @@ describe('NgxZonelessScrollbar', () => {
       fixture.detectChanges();
       const viewport = compiled.querySelector('.ngx-zoneless-scrollbar-viewport');
       const content = compiled.querySelector('.ngx-zoneless-scrollbar-content');
-      
+
       expect(viewport).toBeTruthy();
       expect(content).toBeTruthy();
     });
@@ -84,7 +80,7 @@ describe('NgxZonelessScrollbar', () => {
     it('should accept vertical orientation', () => {
       fixture.componentRef.setInput('orientation', 'vertical');
       fixture.detectChanges();
-      
+
       expect(component.orientation()).toBe('vertical');
       expect(compiled.getAttribute('orientation')).toBe('vertical');
     });
@@ -92,7 +88,7 @@ describe('NgxZonelessScrollbar', () => {
     it('should accept horizontal orientation', () => {
       fixture.componentRef.setInput('orientation', 'horizontal');
       fixture.detectChanges();
-      
+
       expect(component.orientation()).toBe('horizontal');
       expect(compiled.getAttribute('orientation')).toBe('horizontal');
     });
@@ -100,7 +96,7 @@ describe('NgxZonelessScrollbar', () => {
     it('should accept auto orientation', () => {
       fixture.componentRef.setInput('orientation', 'auto');
       fixture.detectChanges();
-      
+
       expect(component.orientation()).toBe('auto');
       expect(compiled.getAttribute('orientation')).toBe('auto');
     });
@@ -126,12 +122,16 @@ describe('NgxZonelessScrollbar', () => {
     let scrollbarComponent: NgxZonelessScrollbar;
 
     // Helper to mock element dimensions for JSDOM
-    function mockScrollDimensions(viewport: HTMLElement, content: HTMLElement, options: {
-      viewportHeight?: number;
-      viewportWidth?: number;
-      contentHeight?: number;
-      contentWidth?: number;
-    }) {
+    function mockScrollDimensions(
+      viewport: HTMLElement,
+      content: HTMLElement,
+      options: {
+        viewportHeight?: number;
+        viewportWidth?: number;
+        contentHeight?: number;
+        contentWidth?: number;
+      },
+    ) {
       Object.defineProperty(viewport, 'clientHeight', { value: options.viewportHeight ?? 200, configurable: true });
       Object.defineProperty(viewport, 'clientWidth', { value: options.viewportWidth ?? 200, configurable: true });
       Object.defineProperty(content, 'scrollHeight', { value: options.contentHeight ?? 100, configurable: true });
@@ -142,16 +142,14 @@ describe('NgxZonelessScrollbar', () => {
       TestBed.resetTestingModule();
       await TestBed.configureTestingModule({
         imports: [TestHostComponent],
-        providers: [provideExperimentalZonelessChangeDetection()]
+        providers: [provideExperimentalZonelessChangeDetection()],
       }).compileComponents();
 
       hostFixture = TestBed.createComponent(TestHostComponent);
       hostComponent = hostFixture.componentInstance;
       hostFixture.detectChanges();
-      
-      const scrollbarDebugElement = hostFixture.debugElement.query(
-        By.directive(NgxZonelessScrollbar)
-      );
+
+      const scrollbarDebugElement = hostFixture.debugElement.query(By.directive(NgxZonelessScrollbar));
       scrollbarComponent = scrollbarDebugElement.componentInstance;
     });
 
@@ -162,10 +160,10 @@ describe('NgxZonelessScrollbar', () => {
     it('should detect vertically scrollable content', () => {
       const viewport = scrollbarComponent.viewportRef.nativeElement;
       const content = scrollbarComponent.contentRef.nativeElement;
-      
+
       mockScrollDimensions(viewport, content, { contentHeight: 500 });
       scrollbarComponent.update();
-      
+
       expect(scrollbarComponent.isVerticallyScrollable()).toBe(true);
       expect(scrollbarComponent.isHorizontallyScrollable()).toBe(false);
     });
@@ -173,7 +171,7 @@ describe('NgxZonelessScrollbar', () => {
     it('should detect horizontally scrollable content', () => {
       const viewport = scrollbarComponent.viewportRef.nativeElement;
       const content = scrollbarComponent.contentRef.nativeElement;
-      
+
       mockScrollDimensions(viewport, content, { contentWidth: 500 });
       scrollbarComponent.update();
 
@@ -183,7 +181,7 @@ describe('NgxZonelessScrollbar', () => {
     it('should detect both directions scrollable in auto mode', () => {
       const viewport = scrollbarComponent.viewportRef.nativeElement;
       const content = scrollbarComponent.contentRef.nativeElement;
-      
+
       mockScrollDimensions(viewport, content, { contentHeight: 500, contentWidth: 500 });
       scrollbarComponent.update();
 
@@ -194,7 +192,7 @@ describe('NgxZonelessScrollbar', () => {
     it('should detect non-scrollable content', () => {
       const viewport = scrollbarComponent.viewportRef.nativeElement;
       const content = scrollbarComponent.contentRef.nativeElement;
-      
+
       mockScrollDimensions(viewport, content, { contentHeight: 50, contentWidth: 50 });
       scrollbarComponent.update();
 
@@ -206,7 +204,7 @@ describe('NgxZonelessScrollbar', () => {
     it('should emit afterUpdate event when scrollability changes', () => {
       const viewport = scrollbarComponent.viewportRef.nativeElement;
       const content = scrollbarComponent.contentRef.nativeElement;
-      
+
       mockScrollDimensions(viewport, content, { contentHeight: 500 });
       scrollbarComponent.update();
 
@@ -218,7 +216,7 @@ describe('NgxZonelessScrollbar', () => {
 
     it('should not emit duplicate events if scrollability unchanged', () => {
       const initialCount = hostComponent.updateEvents.length;
-      
+
       // Trigger update manually without changing content
       scrollbarComponent.update();
 
@@ -237,20 +235,20 @@ describe('NgxZonelessScrollbar', () => {
       fixture.detectChanges();
       const observer = component['resizeObserver'];
       const disconnectSpy = jest.spyOn(observer as ResizeObserver, 'disconnect');
-      
+
       component.ngOnDestroy();
-      
+
       expect(disconnectSpy).toHaveBeenCalled();
     });
 
     it('should handle environment without ResizeObserver', () => {
       const originalResizeObserver = (global as any).ResizeObserver;
       (global as any).ResizeObserver = undefined;
-      
+
       expect(() => {
         fixture.detectChanges();
       }).not.toThrow();
-      
+
       (global as any).ResizeObserver = originalResizeObserver;
     });
   });
@@ -269,7 +267,7 @@ describe('NgxZonelessScrollbar', () => {
       expect(scrollToSpy).toHaveBeenCalledWith({
         top: 100,
         left: 50,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     });
 
@@ -282,7 +280,7 @@ describe('NgxZonelessScrollbar', () => {
       expect(scrollToSpy).toHaveBeenCalledWith({
         top: 200,
         left: 0,
-        behavior: 'instant'
+        behavior: 'instant',
       });
     });
 
@@ -295,7 +293,7 @@ describe('NgxZonelessScrollbar', () => {
       expect(scrollToSpy).toHaveBeenCalledWith({
         top: 150,
         left: 0,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     });
 
@@ -314,7 +312,7 @@ describe('NgxZonelessScrollbar', () => {
       expect(scrollToSpy).toHaveBeenCalledWith({
         top: 0,
         left: 75,
-        behavior: 'instant'
+        behavior: 'instant',
       });
     });
   });
@@ -334,7 +332,7 @@ describe('NgxZonelessScrollbar', () => {
     it('should return viewport element after init', () => {
       fixture.detectChanges();
       const viewportElement = component.viewportElement;
-      
+
       expect(viewportElement).toBeTruthy();
       expect(viewportElement).toBeInstanceOf(HTMLElement);
       expect(viewportElement?.classList.contains('ngx-zoneless-scrollbar-viewport')).toBe(true);
@@ -355,7 +353,7 @@ describe('NgxZonelessScrollbar', () => {
       const viewport = component.viewportRef.nativeElement;
       Object.defineProperty(viewport, 'scrollTop', {
         writable: true,
-        value: 123
+        value: 123,
       });
 
       expect(component.scrollTop).toBe(123);
@@ -371,7 +369,7 @@ describe('NgxZonelessScrollbar', () => {
       const viewport = component.viewportRef.nativeElement;
       Object.defineProperty(viewport, 'scrollLeft', {
         writable: true,
-        value: 456
+        value: 456,
       });
 
       expect(component.scrollLeft).toBe(456);
@@ -390,12 +388,16 @@ describe('NgxZonelessScrollbar', () => {
     let viewportElement: HTMLElement;
 
     // Helper to mock element dimensions for JSDOM
-    function mockScrollDimensions(viewport: HTMLElement, content: HTMLElement, options: {
-      viewportHeight?: number;
-      viewportWidth?: number;
-      contentHeight?: number;
-      contentWidth?: number;
-    }) {
+    function mockScrollDimensions(
+      viewport: HTMLElement,
+      content: HTMLElement,
+      options: {
+        viewportHeight?: number;
+        viewportWidth?: number;
+        contentHeight?: number;
+        contentWidth?: number;
+      },
+    ) {
       Object.defineProperty(viewport, 'clientHeight', { value: options.viewportHeight ?? 200, configurable: true });
       Object.defineProperty(viewport, 'clientWidth', { value: options.viewportWidth ?? 200, configurable: true });
       Object.defineProperty(content, 'scrollHeight', { value: options.contentHeight ?? 100, configurable: true });
@@ -406,15 +408,13 @@ describe('NgxZonelessScrollbar', () => {
       TestBed.resetTestingModule();
       await TestBed.configureTestingModule({
         imports: [TestHostComponent],
-        providers: [provideExperimentalZonelessChangeDetection()]
+        providers: [provideExperimentalZonelessChangeDetection()],
       }).compileComponents();
 
       hostFixture = TestBed.createComponent(TestHostComponent);
       hostFixture.detectChanges();
-      
-      const scrollbarDebugElement = hostFixture.debugElement.query(
-        By.directive(NgxZonelessScrollbar)
-      );
+
+      const scrollbarDebugElement = hostFixture.debugElement.query(By.directive(NgxZonelessScrollbar));
       scrollbarComponent = scrollbarDebugElement.componentInstance;
       viewportElement = hostFixture.nativeElement.querySelector('.ngx-zoneless-scrollbar-viewport');
     });
@@ -426,7 +426,7 @@ describe('NgxZonelessScrollbar', () => {
     it('should add vertical-scrollable class when content is vertically scrollable', () => {
       const viewport = scrollbarComponent.viewportRef.nativeElement;
       const content = scrollbarComponent.contentRef.nativeElement;
-      
+
       mockScrollDimensions(viewport, content, { contentHeight: 500 });
       scrollbarComponent.update();
       hostFixture.detectChanges();
@@ -437,7 +437,7 @@ describe('NgxZonelessScrollbar', () => {
     it('should add horizontal-scrollable class when content is horizontally scrollable', () => {
       const viewport = scrollbarComponent.viewportRef.nativeElement;
       const content = scrollbarComponent.contentRef.nativeElement;
-      
+
       mockScrollDimensions(viewport, content, { contentWidth: 500 });
       scrollbarComponent.update();
       hostFixture.detectChanges();
@@ -455,7 +455,7 @@ describe('NgxZonelessScrollbar', () => {
           <ngx-zoneless-scrollbar>
             <p class="test-content">Projected Content</p>
           </ngx-zoneless-scrollbar>
-        `
+        `,
       })
       class ContentProjectionTestComponent {}
 
@@ -472,7 +472,7 @@ describe('NgxZonelessScrollbar', () => {
     it('should handle null viewport reference gracefully', () => {
       const injector = TestBed.inject(Injector);
       const newComponent = runInInjectionContext(injector, () => new NgxZonelessScrollbar());
-      
+
       expect(() => {
         (newComponent as any).checkScrollability();
       }).not.toThrow();
@@ -482,9 +482,9 @@ describe('NgxZonelessScrollbar', () => {
       const injector = TestBed.inject(Injector);
       const newComponent = runInInjectionContext(injector, () => new NgxZonelessScrollbar());
       newComponent.viewportRef = {
-        nativeElement: document.createElement('div')
+        nativeElement: document.createElement('div'),
       } as any;
-      
+
       expect(() => {
         (newComponent as any).checkScrollability();
       }).not.toThrow();
@@ -493,10 +493,8 @@ describe('NgxZonelessScrollbar', () => {
     it('should handle scrollTo when viewport is not ready', async () => {
       const injector = TestBed.inject(Injector);
       const newComponent = runInInjectionContext(injector, () => new NgxZonelessScrollbar());
-      
-      await expect(
-        newComponent.scrollTo({ top: 100 })
-      ).resolves.toBeUndefined();
+
+      await expect(newComponent.scrollTo({ top: 100 })).resolves.toBeUndefined();
     });
 
     it('should handle multiple rapid resize events', () => {
@@ -504,7 +502,7 @@ describe('NgxZonelessScrollbar', () => {
       fixture.detectChanges();
       const viewport = component.viewportRef.nativeElement;
       const content = component.contentRef.nativeElement;
-      
+
       // Helper to mock dimensions
       function mockDimensions(contentHeight: number) {
         Object.defineProperty(viewport, 'clientHeight', { value: 200, configurable: true });
@@ -512,10 +510,10 @@ describe('NgxZonelessScrollbar', () => {
         Object.defineProperty(content, 'scrollHeight', { value: contentHeight, configurable: true });
         Object.defineProperty(content, 'scrollWidth', { value: 100, configurable: true });
       }
-      
+
       // Trigger multiple size changes rapidly
       for (let i = 0; i < 5; i++) {
-        mockDimensions(100 + (i * 100));
+        mockDimensions(100 + i * 100);
         component.update();
       }
 
@@ -537,16 +535,16 @@ describe('NgxZonelessScrollbar', () => {
       fixture.detectChanges();
       const observer = component['resizeObserver'];
       const disconnectSpy = jest.spyOn(observer as ResizeObserver, 'disconnect');
-      
+
       component.ngOnDestroy();
-      
+
       expect(disconnectSpy).toHaveBeenCalled();
     });
 
     it('should handle destroy when ResizeObserver is null', () => {
       fixture.detectChanges();
       component['resizeObserver'] = null;
-      
+
       expect(() => {
         component.ngOnDestroy();
       }).not.toThrow();
@@ -555,12 +553,16 @@ describe('NgxZonelessScrollbar', () => {
 
   describe('Integration Tests', () => {
     // Helper to mock element dimensions for JSDOM
-    function mockScrollDimensions(viewport: HTMLElement, content: HTMLElement, options: {
-      viewportHeight?: number;
-      viewportWidth?: number;
-      contentHeight?: number;
-      contentWidth?: number;
-    }) {
+    function mockScrollDimensions(
+      viewport: HTMLElement,
+      content: HTMLElement,
+      options: {
+        viewportHeight?: number;
+        viewportWidth?: number;
+        contentHeight?: number;
+        contentWidth?: number;
+      },
+    ) {
       Object.defineProperty(viewport, 'clientHeight', { value: options.viewportHeight ?? 200, configurable: true });
       Object.defineProperty(viewport, 'clientWidth', { value: options.viewportWidth ?? 200, configurable: true });
       Object.defineProperty(content, 'scrollHeight', { value: options.contentHeight ?? 100, configurable: true });
