@@ -4,198 +4,198 @@
   padding: 2rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
-}
 
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-}
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
 
-h1 {
-  color: white;
-  text-align: center;
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.subtitle {
-  color: rgba(255, 255, 255, 0.9);
-  text-align: center;
-  font-size: 1.2rem;
-  margin-bottom: 3rem;
-}
-
-.columns {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.column {
-  background: white;
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.column h2 {
-  margin-top: 0;
-  color: #667eea;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.column h3 {
-  color: #764ba2;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.content {
-  padding: 1rem;
-  line-height: 1.6;
-}
-
-.content p {
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-/* Default scrollbar style */
-.scrollbar-default {
-  height: 400px;
-  --scrollbar-size: 8px;
-  --scrollbar-thumb-color: rgba(102, 126, 234, 0.5);
-  --scrollbar-thumb-color-hover: rgba(102, 126, 234, 0.8);
-  --scrollbar-thumb-radius: 4px;
-}
-
-/* Dark theme scrollbar */
-.scrollbar-dark {
-  height: 400px;
-  background: #1a1a2e;
-  border-radius: 8px;
-  --scrollbar-size: 10px;
-  --scrollbar-thumb-color: rgba(255, 255, 255, 0.3);
-  --scrollbar-thumb-color-hover: rgba(255, 255, 255, 0.5);
-  --scrollbar-thumb-radius: 5px;
-}
-
-.dark-content {
-  background: #1a1a2e;
-}
-
-.dark-content h3 {
-  color: #bb86fc;
-}
-
-.dark-content p {
-  color: #e0e0e0;
-}
-
-/* Thin scrollbar style */
-.scrollbar-thin {
-  height: 400px;
-  --scrollbar-size: 4px;
-  --scrollbar-thumb-color: rgba(118, 75, 162, 0.4);
-  --scrollbar-thumb-color-hover: rgba(118, 75, 162, 0.7);
-  --scrollbar-thumb-radius: 2px;
-}
-
-/* Neon glow scrollbar */
-.scrollbar-neon {
-  height: 400px;
-  background: #0a0e27;
-  border-radius: 8px;
-  --scrollbar-size: 14px;
-  --scrollbar-thumb-color: #00ff88;
-  --scrollbar-thumb-color-hover: #00ffcc;
-  --scrollbar-thumb-radius: 7px;
-}
-
-.scrollbar-neon::ng-deep .scrollbar-thumb {
-  box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
-}
-
-.scrollbar-neon:hover::ng-deep .scrollbar-thumb {
-  box-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc, 0 0 45px #00ffcc;
-}
-
-.neon-content {
-  background: #0a0e27;
-}
-
-.neon-content h3 {
-  color: #00ff88;
-  text-shadow: 0 0 10px #00ff88;
-}
-
-.neon-content p {
-  color: #c0c0c0;
-}
-
-/* Rounded pill scrollbar */
-.scrollbar-pill {
-  height: 400px;
-  --scrollbar-size: 16px;
-  --scrollbar-thumb-color: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  --scrollbar-thumb-color-hover: linear-gradient(135deg, #fa89f7 0%, #ff4757 100%);
-  --scrollbar-thumb-radius: 999px;
-}
-
-/* Squared edge scrollbar */
-.scrollbar-squared {
-  height: 400px;
-  background: #f5f5f5;
-  --scrollbar-size: 12px;
-  --scrollbar-thumb-color: #ff6b35;
-  --scrollbar-thumb-color-hover: #ff4500;
-  --scrollbar-thumb-radius: 0px;
-}
-
-.squared-content {
-  background: #f5f5f5;
-}
-
-.squared-content h3 {
-  color: #ff6b35;
-}
-
-.squared-content p {
-  color: #2d2d2d;
-}
-
-footer {
-  text-align: center;
-  color: white;
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-footer p {
-  margin: 0.5rem 0;
-}
-
-footer a {
-  color: white;
-  text-decoration: none;
-  margin: 0 0.5rem;
-  font-weight: 500;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-@media (max-width: 768px) {
   h1 {
-    font-size: 2rem;
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
   }
 
   .columns {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .column {
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+    h2 {
+      margin-top: 0;
+      color: #667eea;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      color: #764ba2;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .content {
+    padding: 1rem;
+    line-height: 1.6;
+
+    p {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+  }
+
+  /* Default scrollbar style */
+  .scrollbar-default {
+    height: 400px;
+    --scrollbar-size: 8px;
+    --scrollbar-thumb-color: rgba(102, 126, 234, 0.5);
+    --scrollbar-thumb-color-hover: rgba(102, 126, 234, 0.8);
+    --scrollbar-thumb-radius: 4px;
+  }
+
+  /* Dark theme scrollbar */
+  .scrollbar-dark {
+    height: 400px;
+    background: #1a1a2e;
+    border-radius: 8px;
+    --scrollbar-size: 10px;
+    --scrollbar-thumb-color: rgba(255, 255, 255, 0.3);
+    --scrollbar-thumb-color-hover: rgba(255, 255, 255, 0.5);
+    --scrollbar-thumb-radius: 5px;
+  }
+
+  .dark-content {
+    background: #1a1a2e;
+
+    h3 {
+      color: #bb86fc;
+    }
+
+    p {
+      color: #e0e0e0;
+    }
+  }
+
+  /* Thin scrollbar style */
+  .scrollbar-thin {
+    height: 400px;
+    --scrollbar-size: 4px;
+    --scrollbar-thumb-color: rgba(118, 75, 162, 0.4);
+    --scrollbar-thumb-color-hover: rgba(118, 75, 162, 0.7);
+    --scrollbar-thumb-radius: 2px;
+  }
+
+  /* Neon glow scrollbar */
+  .scrollbar-neon {
+    height: 400px;
+    background: #0a0e27;
+    border-radius: 8px;
+    --scrollbar-size: 14px;
+    --scrollbar-thumb-color: #00ff88;
+    --scrollbar-thumb-color-hover: #00ffcc;
+    --scrollbar-thumb-radius: 7px;
+
+    &::ng-deep .scrollbar-thumb {
+      box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+    }
+
+    &:hover::ng-deep .scrollbar-thumb {
+      box-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc, 0 0 45px #00ffcc;
+    }
+  }
+
+  .neon-content {
+    background: #0a0e27;
+
+    h3 {
+      color: #00ff88;
+      text-shadow: 0 0 10px #00ff88;
+    }
+
+    p {
+      color: #c0c0c0;
+    }
+  }
+
+  /* Rounded pill scrollbar */
+  .scrollbar-pill {
+    height: 400px;
+    --scrollbar-size: 16px;
+    --scrollbar-thumb-color: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --scrollbar-thumb-color-hover: linear-gradient(135deg, #fa89f7 0%, #ff4757 100%);
+    --scrollbar-thumb-radius: 999px;
+  }
+
+  /* Squared edge scrollbar */
+  .scrollbar-squared {
+    height: 400px;
+    background: #f5f5f5;
+    --scrollbar-size: 12px;
+    --scrollbar-thumb-color: #ff6b35;
+    --scrollbar-thumb-color-hover: #ff4500;
+    --scrollbar-thumb-radius: 0px;
+  }
+
+  .squared-content {
+    background: #f5f5f5;
+
+    h3 {
+      color: #ff6b35;
+    }
+
+    p {
+      color: #2d2d2d;
+    }
+  }
+
+  footer {
+    text-align: center;
+    color: white;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+    p {
+      margin: 0.5rem 0;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .columns {
+      grid-template-columns: 1fr;
+    }
   }
 }
