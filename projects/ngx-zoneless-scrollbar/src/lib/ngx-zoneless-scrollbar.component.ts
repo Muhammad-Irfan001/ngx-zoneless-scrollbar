@@ -78,8 +78,8 @@ import { ScrollbarOrientation, ScrollbarUpdateEvent } from './ngx-zoneless-scrol
       overflow-y: hidden;
     }
 
-    /* Firefox scrollbar - only when webkit is not supported */
-    @supports not selector(::-webkit-scrollbar) {
+    /* Firefox scrollbar styles (Firefox supports -moz-appearance) */
+    @supports (-moz-appearance: none) {
       ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport {
         scrollbar-width: thin;
         scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
