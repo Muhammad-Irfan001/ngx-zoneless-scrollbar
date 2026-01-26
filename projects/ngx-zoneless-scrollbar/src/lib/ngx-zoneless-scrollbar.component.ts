@@ -62,6 +62,10 @@ import { ScrollbarOrientation, ScrollbarUpdateEvent } from './ngx-zoneless-scrol
         --scrollbar-thumb-color: rgba(0, 0, 0, 0.3);
         --scrollbar-thumb-color-hover: rgba(0, 0, 0, 0.5);
         --scrollbar-thumb-radius: 4px;
+        --scrollbar-thumb-shadow: none;
+        --scrollbar-thumb-shadow-hover: none;
+        --scrollbar-thumb-border: none;
+        --scrollbar-thumb-border-hover: none;
       }
 
       .ngx-zoneless-scrollbar-viewport {
@@ -85,11 +89,15 @@ import { ScrollbarOrientation, ScrollbarUpdateEvent } from './ngx-zoneless-scrol
         &::-webkit-scrollbar-thumb {
           background: var(--scrollbar-thumb-color);
           border-radius: var(--scrollbar-thumb-radius);
-          transition: background 0.2s ease;
+          border: var(--scrollbar-thumb-border);
+          box-shadow: var(--scrollbar-thumb-shadow);
+          transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
         }
 
         &::-webkit-scrollbar-thumb:hover {
           background: var(--scrollbar-thumb-color-hover);
+          border: var(--scrollbar-thumb-border-hover);
+          box-shadow: var(--scrollbar-thumb-shadow-hover);
         }
 
         /* Firefox scrollbar styling */

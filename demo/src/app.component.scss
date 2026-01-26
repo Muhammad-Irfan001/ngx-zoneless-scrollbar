@@ -112,14 +112,8 @@
     --scrollbar-thumb-color: #00ff88;
     --scrollbar-thumb-color-hover: #00ffcc;
     --scrollbar-thumb-radius: 7px;
-
-    &::ng-deep .scrollbar-thumb {
-      box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
-    }
-
-    &:hover::ng-deep .scrollbar-thumb {
-      box-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc, 0 0 45px #00ffcc;
-    }
+    --scrollbar-thumb-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+    --scrollbar-thumb-shadow-hover: 0 0 15px #00ffcc, 0 0 30px #00ffcc, 0 0 45px #00ffcc;
   }
 
   .neon-content {

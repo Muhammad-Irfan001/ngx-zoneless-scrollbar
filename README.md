@@ -155,11 +155,11 @@ export class MyComponent {
 
 ### CSS Variables
 
-Customize the scrollbar appearance using CSS:
+Customize the scrollbar appearance using CSS custom properties:
 
 ```css
 ngx-zoneless-scrollbar {
-  /* Scrollbar size */
+  /* Scrollbar dimensions */
   --scrollbar-size: 8px;
 
   /* Track styling */
@@ -170,10 +170,31 @@ ngx-zoneless-scrollbar {
   --scrollbar-thumb-color: rgba(0, 0, 0, 0.3);
   --scrollbar-thumb-color-hover: rgba(0, 0, 0, 0.5);
   --scrollbar-thumb-radius: 4px;
+  
+  /* Advanced styling */
+  --scrollbar-thumb-shadow: none;
+  --scrollbar-thumb-shadow-hover: none;
+  --scrollbar-thumb-border: none;
+  --scrollbar-thumb-border-hover: none;
 }
 ```
 
-### Custom Styles Example
+### Available CSS Custom Properties
+
+| Property | Default | Description |
+|----------|---------|-------------|
+| `--scrollbar-size` | `7px` | Width of vertical scrollbar / height of horizontal scrollbar |
+| `--scrollbar-track-color` | `transparent` | Background color of the scrollbar track |
+| `--scrollbar-track-radius` | `4px` | Border radius of the scrollbar track |
+| `--scrollbar-thumb-color` | `rgba(0, 0, 0, 0.3)` | Color of the scrollbar thumb (supports gradients) |
+| `--scrollbar-thumb-color-hover` | `rgba(0, 0, 0, 0.5)` | Color of the scrollbar thumb on hover (supports gradients) |
+| `--scrollbar-thumb-radius` | `4px` | Border radius of the scrollbar thumb |
+| `--scrollbar-thumb-shadow` | `none` | Box shadow of the scrollbar thumb (e.g., for glow effects) |
+| `--scrollbar-thumb-shadow-hover` | `none` | Box shadow of the scrollbar thumb on hover |
+| `--scrollbar-thumb-border` | `none` | Border of the scrollbar thumb |
+| `--scrollbar-thumb-border-hover` | `none` | Border of the scrollbar thumb on hover |
+
+### Custom Styles Examples
 
 ```css
 /* Dark theme scrollbar */
@@ -185,6 +206,35 @@ ngx-zoneless-scrollbar {
 /* Thin scrollbar */
 .thin-scrollbar ngx-zoneless-scrollbar {
   --scrollbar-size: 4px;
+  --scrollbar-thumb-radius: 2px;
+}
+
+/* Neon glow effect */
+.neon-scrollbar ngx-zoneless-scrollbar {
+  --scrollbar-size: 14px;
+  --scrollbar-thumb-color: #00ff88;
+  --scrollbar-thumb-color-hover: #00ffcc;
+  --scrollbar-thumb-radius: 7px;
+  --scrollbar-thumb-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+  --scrollbar-thumb-shadow-hover: 0 0 15px #00ffcc, 0 0 30px #00ffcc, 0 0 45px #00ffcc;
+}
+
+/* Gradient scrollbar */
+.gradient-scrollbar ngx-zoneless-scrollbar {
+  --scrollbar-size: 16px;
+  --scrollbar-thumb-color: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --scrollbar-thumb-color-hover: linear-gradient(135deg, #fa89f7 0%, #ff4757 100%);
+  --scrollbar-thumb-radius: 999px;
+}
+
+/* Square corners with border */
+.squared-scrollbar ngx-zoneless-scrollbar {
+  --scrollbar-size: 12px;
+  --scrollbar-thumb-color: #ff6b35;
+  --scrollbar-thumb-color-hover: #ff4500;
+  --scrollbar-thumb-radius: 0px;
+  --scrollbar-thumb-border: 2px solid #fff;
+  --scrollbar-thumb-border-hover: 2px solid #000;
 }
 ```
 
