@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://stackblitz.com/github/Legalfina/ngx-zoneless-scrollbar/tree/main/demo">
+  <a href="https://stackblitz.com/github/Legalfina/ngx-zoneless-scrollbar/tree/main/demo?file=src%2Fapp.component.html">
     <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" alt="Open in StackBlitz">
   </a>
 </p>
