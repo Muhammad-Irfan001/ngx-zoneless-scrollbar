@@ -4,6 +4,12 @@
   <img src="assets/banner.png" alt="ngx-zoneless-scrollbar" width="600">
 </p>
 
+<p align="center">
+  <a href="https://stackblitz.com/github/Legalfina/ngx-zoneless-scrollbar/tree/main/demo">
+    <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" alt="Open in StackBlitz">
+  </a>
+</p>
+
 [![npm version](https://img.shields.io/npm/v/ngx-zoneless-scrollbar.svg)](https://www.npmjs.com/package/ngx-zoneless-scrollbar)
 [![npm downloads](https://img.shields.io/npm/dm/ngx-zoneless-scrollbar.svg)](https://www.npmjs.com/package/ngx-zoneless-scrollbar)
 [![License](https://img.shields.io/npm/l/ngx-zoneless-scrollbar.svg)](https://github.com/Legalfina/ngx-zoneless-scrollbar/blob/main/LICENSE)
