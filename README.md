@@ -1,5 +1,11 @@
 # ngx-zoneless-scrollbar
 
+[![npm version](https://img.shields.io/npm/v/ngx-zoneless-scrollbar.svg)](https://www.npmjs.com/package/ngx-zoneless-scrollbar)
+[![npm downloads](https://img.shields.io/npm/dm/ngx-zoneless-scrollbar.svg)](https://www.npmjs.com/package/ngx-zoneless-scrollbar)
+[![License](https://img.shields.io/npm/l/ngx-zoneless-scrollbar.svg)](https://github.com/Legalfina/ngx-zoneless-scrollbar/blob/main/LICENSE)
+[![CI Build](https://github.com/Legalfina/ngx-zoneless-scrollbar/actions/workflows/publish.yml/badge.svg)](https://github.com/Legalfina/ngx-zoneless-scrollbar/actions/workflows/publish.yml)
+[![codecov](https://codecov.io/gh/Legalfina/ngx-zoneless-scrollbar/branch/main/graph/badge.svg)](https://codecov.io/gh/Legalfina/ngx-zoneless-scrollbar)
+
 A lightweight, zoneless-compatible scrollbar component for Angular. Uses native browser scrolling with CSS-styled scrollbars, designed specifically for Angular's zoneless change detection mode.
 
 ## Why ngx-zoneless-scrollbar?
