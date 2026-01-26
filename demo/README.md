@@ -8,6 +8,9 @@ This is a StackBlitz demo showcasing the `ngx-zoneless-scrollbar` package with d
 - **Column 2**: Default scrollbar styling
 - **Column 3**: Dark theme with custom colors
 - **Column 4**: Thin, minimalist scrollbar
+- **Column 5**: Neon glow scrollbar with cyberpunk-style glowing effects
+- **Column 6**: Rounded pill scrollbar with gradient colors
+- **Column 7**: Squared edge scrollbar with sharp corners and bold styling
 
 ## Running Locally
 
