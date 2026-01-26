@@ -26,6 +26,9 @@ jobs:
           node-version: "20"
           registry-url: "https://registry.npmjs.org"
 
+      - name: Update npm
+        run: npm install -g npm@latest
+
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
@@ -57,7 +60,7 @@ jobs:
       - name: Publish to NPM
         run: |
           cd dist/ngx-zoneless-scrollbar
-          npm publish --access public
+          npm publish --access public --provenance
 
       - name: Commit version bump
         run: |
