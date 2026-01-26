@@ -1,4 +1,4 @@
-import { Component, provideZonelessChangeDetection } from '@angular/core';
+import { Component, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { NgxZonelessScrollbar } from 'ngx-zoneless-scrollbar';
 
@@ -263,5 +263,5 @@ export class App {
 }
 
 bootstrapApplication(App, {
-  providers: [provideZonelessChangeDetection()],
+  providers: [provideExperimentalZonelessChangeDetection()],
 });
