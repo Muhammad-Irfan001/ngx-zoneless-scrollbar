@@ -11,6 +11,7 @@ This is a StackBlitz demo showcasing the `ngx-zoneless-scrollbar` package with d
 - **Column 5**: Neon glow scrollbar with cyberpunk-style glowing effects
 - **Column 6**: Rounded pill scrollbar with gradient colors
 - **Column 7**: Squared edge scrollbar with sharp corners and bold styling
+- **Column 8**: Custom borders with orange track, pink thumb, and black borders
 
 ## Running Locally
 

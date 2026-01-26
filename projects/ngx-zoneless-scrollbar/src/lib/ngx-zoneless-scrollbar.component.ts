@@ -46,10 +46,10 @@ import { ScrollbarOrientation, ScrollbarUpdateEvent } from './ngx-zoneless-scrol
         --scrollbar-thumb-color: rgba(0, 0, 0, 0.3);
         --scrollbar-thumb-color-hover: rgba(0, 0, 0, 0.5);
         --scrollbar-thumb-radius: 4px;
-        --scrollbar-thumb-shadow: none;
-        --scrollbar-thumb-shadow-hover: none;
-        --scrollbar-thumb-border: none;
-        --scrollbar-thumb-border-hover: none;
+        --scrollbar-thumb-shadow: unset;
+        --scrollbar-thumb-shadow-hover: unset;
+        --scrollbar-thumb-border: 0;
+        --scrollbar-thumb-border-hover: 0;
       }
 
       .ngx-zoneless-scrollbar-viewport {
@@ -84,6 +84,12 @@ import { ScrollbarOrientation, ScrollbarUpdateEvent } from './ngx-zoneless-scrol
       }
 
       .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-thumb:hover {
+        background: var(--scrollbar-thumb-color-hover);
+        border: var(--scrollbar-thumb-border-hover);
+        box-shadow: var(--scrollbar-thumb-shadow-hover);
+      }
+
+      .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-thumb:active {
         background: var(--scrollbar-thumb-color-hover);
         border: var(--scrollbar-thumb-border-hover);
         box-shadow: var(--scrollbar-thumb-shadow-hover);

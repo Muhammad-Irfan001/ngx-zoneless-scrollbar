@@ -188,3 +188,14 @@
   --scrollbar-thumb-color-hover: #ff4500;
   --scrollbar-thumb-radius: 0px;
 }
+
+.scrollbar-custom {
+  height: 400px;
+  --scrollbar-size: 10px;
+  --scrollbar-track-color: orange;
+  --scrollbar-thumb-color: pink;
+  --scrollbar-thumb-color-hover: #88dd88;
+  --scrollbar-thumb-radius: 10px;
+  --scrollbar-thumb-border: solid 1px black;
+  --scrollbar-thumb-border-hover: solid 1px black;
+}
