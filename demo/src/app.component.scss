@@ -62,26 +62,6 @@
     }
   }
 
-  /* Default scrollbar style */
-  .scrollbar-default {
-    height: 400px;
-    --scrollbar-size: 8px;
-    --scrollbar-thumb-color: rgba(102, 126, 234, 0.5);
-    --scrollbar-thumb-color-hover: rgba(102, 126, 234, 0.8);
-    --scrollbar-thumb-radius: 4px;
-  }
-
-  /* Dark theme scrollbar */
-  .scrollbar-dark {
-    height: 400px;
-    background: #1a1a2e;
-    border-radius: 8px;
-    --scrollbar-size: 10px;
-    --scrollbar-thumb-color: rgba(255, 255, 255, 0.3);
-    --scrollbar-thumb-color-hover: rgba(255, 255, 255, 0.5);
-    --scrollbar-thumb-radius: 5px;
-  }
-
   .dark-content {
     background: #1a1a2e;
 
@@ -92,28 +72,6 @@
     p {
       color: #e0e0e0;
     }
-  }
-
-  /* Thin scrollbar style */
-  .scrollbar-thin {
-    height: 400px;
-    --scrollbar-size: 4px;
-    --scrollbar-thumb-color: rgba(118, 75, 162, 0.4);
-    --scrollbar-thumb-color-hover: rgba(118, 75, 162, 0.7);
-    --scrollbar-thumb-radius: 2px;
-  }
-
-  /* Neon glow scrollbar */
-  .scrollbar-neon {
-    height: 400px;
-    background: #0a0e27;
-    border-radius: 8px;
-    --scrollbar-size: 14px;
-    --scrollbar-thumb-color: #00ff88;
-    --scrollbar-thumb-color-hover: #00ffcc;
-    --scrollbar-thumb-radius: 7px;
-    --scrollbar-thumb-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
-    --scrollbar-thumb-shadow-hover: 0 0 15px #00ffcc, 0 0 30px #00ffcc, 0 0 45px #00ffcc;
   }
 
   .neon-content {
@@ -127,25 +85,6 @@
     p {
       color: #c0c0c0;
     }
-  }
-
-  /* Rounded pill scrollbar */
-  .scrollbar-pill {
-    height: 400px;
-    --scrollbar-size: 16px;
-    --scrollbar-thumb-color: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --scrollbar-thumb-color-hover: linear-gradient(135deg, #fa89f7 0%, #ff4757 100%);
-    --scrollbar-thumb-radius: 999px;
-  }
-
-  /* Squared edge scrollbar */
-  .scrollbar-squared {
-    height: 400px;
-    background: #f5f5f5;
-    --scrollbar-size: 12px;
-    --scrollbar-thumb-color: #ff6b35;
-    --scrollbar-thumb-color-hover: #ff4500;
-    --scrollbar-thumb-radius: 0px;
   }
 
   .squared-content {
@@ -192,4 +131,60 @@
       grid-template-columns: 1fr;
     }
   }
+}
+
+/* Scrollbar styles - defined outside :host to apply to child components */
+.scrollbar-default {
+  height: 400px;
+  --scrollbar-size: 8px;
+  --scrollbar-thumb-color: rgba(102, 126, 234, 0.5);
+  --scrollbar-thumb-color-hover: rgba(102, 126, 234, 0.8);
+  --scrollbar-thumb-radius: 4px;
+}
+
+.scrollbar-dark {
+  height: 400px;
+  background: #1a1a2e;
+  border-radius: 8px;
+  --scrollbar-size: 10px;
+  --scrollbar-thumb-color: rgba(255, 255, 255, 0.3);
+  --scrollbar-thumb-color-hover: rgba(255, 255, 255, 0.5);
+  --scrollbar-thumb-radius: 5px;
+}
+
+.scrollbar-thin {
+  height: 400px;
+  --scrollbar-size: 4px;
+  --scrollbar-thumb-color: rgba(118, 75, 162, 0.4);
+  --scrollbar-thumb-color-hover: rgba(118, 75, 162, 0.7);
+  --scrollbar-thumb-radius: 2px;
+}
+
+.scrollbar-neon {
+  height: 400px;
+  background: #0a0e27;
+  border-radius: 8px;
+  --scrollbar-size: 14px;
+  --scrollbar-thumb-color: #00ff88;
+  --scrollbar-thumb-color-hover: #00ffcc;
+  --scrollbar-thumb-radius: 7px;
+  --scrollbar-thumb-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+  --scrollbar-thumb-shadow-hover: 0 0 15px #00ffcc, 0 0 30px #00ffcc, 0 0 45px #00ffcc;
+}
+
+.scrollbar-pill {
+  height: 400px;
+  --scrollbar-size: 16px;
+  --scrollbar-thumb-color: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --scrollbar-thumb-color-hover: linear-gradient(135deg, #fa89f7 0%, #ff4757 100%);
+  --scrollbar-thumb-radius: 999px;
+}
+
+.scrollbar-squared {
+  height: 400px;
+  background: #f5f5f5;
+  --scrollbar-size: 12px;
+  --scrollbar-thumb-color: #ff6b35;
+  --scrollbar-thumb-color-hover: #ff4500;
+  --scrollbar-thumb-radius: 0px;
 }
