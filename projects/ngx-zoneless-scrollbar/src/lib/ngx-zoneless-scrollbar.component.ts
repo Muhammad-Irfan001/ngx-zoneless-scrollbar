@@ -1,15 +1,4 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  input,
-  OnDestroy,
-  output,
-  signal,
-  ViewChild,
-  WritableSignal
-} from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, input, OnDestroy, output, signal, ViewChild, WritableSignal } from '@angular/core';
 import { ScrollbarOrientation, ScrollbarUpdateEvent } from './ngx-zoneless-scrollbar.models';
 
 /**
@@ -36,12 +25,7 @@ import { ScrollbarOrientation, ScrollbarUpdateEvent } from './ngx-zoneless-scrol
   selector: 'ngx-zoneless-scrollbar',
   standalone: true,
   template: `
-    <div
-      #viewport
-      class="ngx-zoneless-scrollbar-viewport"
-      [class.vertical-scrollable]="isVerticallyScrollable()"
-      [class.horizontal-scrollable]="isHorizontallyScrollable()"
-    >
+    <div #viewport class="ngx-zoneless-scrollbar-viewport" [class.vertical-scrollable]="isVerticallyScrollable()" [class.horizontal-scrollable]="isHorizontallyScrollable()">
       <div #content class="ngx-zoneless-scrollbar-content">
         <ng-content></ng-content>
       </div>
@@ -120,12 +104,12 @@ import { ScrollbarOrientation, ScrollbarUpdateEvent } from './ngx-zoneless-scrol
         min-height: 100%;
         min-width: 100%;
       }
-    `
+    `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    '[attr.orientation]': 'orientation()'
-  }
+    '[attr.orientation]': 'orientation()',
+  },
 })
 export class NgxZonelessScrollbar implements AfterViewInit, OnDestroy {
   @ViewChild('viewport') viewportRef!: ElementRef<HTMLElement>;
@@ -198,7 +182,7 @@ export class NgxZonelessScrollbar implements AfterViewInit, OnDestroy {
 
       this.afterUpdate.emit({
         isVerticallyScrollable: isVertical,
-        isHorizontallyScrollable: isHorizontal
+        isHorizontallyScrollable: isHorizontal,
       });
     }
   }
@@ -213,7 +197,7 @@ export class NgxZonelessScrollbar implements AfterViewInit, OnDestroy {
       this.viewportRef?.nativeElement?.scrollTo({
         top: options.top ?? 0,
         left: options.left ?? 0,
-        behavior: options.behavior ?? 'smooth'
+        behavior: options.behavior ?? 'smooth',
       });
       // Resolve after a short delay for smooth scroll
       setTimeout(resolve, options.behavior === 'instant' ? 0 : 300);

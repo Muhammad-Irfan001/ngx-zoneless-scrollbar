@@ -170,7 +170,7 @@ ngx-zoneless-scrollbar {
   --scrollbar-thumb-color: rgba(0, 0, 0, 0.3);
   --scrollbar-thumb-color-hover: rgba(0, 0, 0, 0.5);
   --scrollbar-thumb-radius: 4px;
-  
+
   /* Advanced styling */
   --scrollbar-thumb-shadow: none;
   --scrollbar-thumb-shadow-hover: none;
@@ -181,18 +181,18 @@ ngx-zoneless-scrollbar {
 
 ### Available CSS Custom Properties
 
-| Property | Default | Description |
-|----------|---------|-------------|
-| `--scrollbar-size` | `7px` | Width of vertical scrollbar / height of horizontal scrollbar |
-| `--scrollbar-track-color` | `transparent` | Background color of the scrollbar track |
-| `--scrollbar-track-radius` | `4px` | Border radius of the scrollbar track |
-| `--scrollbar-thumb-color` | `rgba(0, 0, 0, 0.3)` | Color of the scrollbar thumb (supports gradients) |
-| `--scrollbar-thumb-color-hover` | `rgba(0, 0, 0, 0.5)` | Color of the scrollbar thumb on hover (supports gradients) |
-| `--scrollbar-thumb-radius` | `4px` | Border radius of the scrollbar thumb |
-| `--scrollbar-thumb-shadow` | `none` | Box shadow of the scrollbar thumb (e.g., for glow effects) |
-| `--scrollbar-thumb-shadow-hover` | `none` | Box shadow of the scrollbar thumb on hover |
-| `--scrollbar-thumb-border` | `none` | Border of the scrollbar thumb |
-| `--scrollbar-thumb-border-hover` | `none` | Border of the scrollbar thumb on hover |
+| Property                         | Default              | Description                                                  |
+| -------------------------------- | -------------------- | ------------------------------------------------------------ |
+| `--scrollbar-size`               | `7px`                | Width of vertical scrollbar / height of horizontal scrollbar |
+| `--scrollbar-track-color`        | `transparent`        | Background color of the scrollbar track                      |
+| `--scrollbar-track-radius`       | `4px`                | Border radius of the scrollbar track                         |
+| `--scrollbar-thumb-color`        | `rgba(0, 0, 0, 0.3)` | Color of the scrollbar thumb (supports gradients)            |
+| `--scrollbar-thumb-color-hover`  | `rgba(0, 0, 0, 0.5)` | Color of the scrollbar thumb on hover (supports gradients)   |
+| `--scrollbar-thumb-radius`       | `4px`                | Border radius of the scrollbar thumb                         |
+| `--scrollbar-thumb-shadow`       | `none`               | Box shadow of the scrollbar thumb (e.g., for glow effects)   |
+| `--scrollbar-thumb-shadow-hover` | `none`               | Box shadow of the scrollbar thumb on hover                   |
+| `--scrollbar-thumb-border`       | `none`               | Border of the scrollbar thumb                                |
+| `--scrollbar-thumb-border-hover` | `none`               | Border of the scrollbar thumb on hover                       |
 
 ### Custom Styles Examples
 
