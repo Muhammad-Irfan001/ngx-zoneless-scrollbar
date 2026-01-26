@@ -1,0 +1,66 @@
+name: Publish to NPM
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write  # Required for OIDC trusted publishing
+  contents: write  # Required to push version bump commits
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+      
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      
+      - name: Install dependencies
+        run: pnpm install
+      
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+      
+      - name: Bump version
+        run: |
+          cd projects/ngx-zoneless-scrollbar
+          npm version patch --no-git-tag-version
+          cd ../..
+      
+      - name: Get new version
+        id: version
+        run: |
+          VERSION=$(node -p "require('./projects/ngx-zoneless-scrollbar/package.json').version")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+      
+      - name: Build library
+        run: pnpm run build
+      
+      - name: Publish to NPM
+        run: |
+          cd dist/ngx-zoneless-scrollbar
+          npm publish --access public
+      
+      - name: Commit version bump
+        run: |
+          git add projects/ngx-zoneless-scrollbar/package.json
+          git commit -m "chore: bump version to ${{ steps.version.outputs.version }} [skip ci]"
+          git push
