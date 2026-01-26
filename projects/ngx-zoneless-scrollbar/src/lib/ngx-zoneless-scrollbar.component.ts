@@ -33,7 +33,7 @@ import { ScrollbarOrientation, ScrollbarUpdateEvent } from './ngx-zoneless-scrol
   `,
   styles: [
     `
-      :host {
+      ngx-zoneless-scrollbar {
         display: block;
         height: 100%;
         width: 100%;
@@ -52,30 +52,28 @@ import { ScrollbarOrientation, ScrollbarUpdateEvent } from './ngx-zoneless-scrol
         --scrollbar-thumb-border-hover: 0;
       }
 
-      .ngx-zoneless-scrollbar-viewport {
+      ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport {
         height: 100%;
         width: 100%;
         overflow: auto;
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-        overscroll-behavior: contain; /* Prevent scroll chaining */
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
 
-        /* Inherit CSS custom properties from :host */
         scrollbar-width: thin;
         scrollbar-color: var(--scrollbar-thumb-color, rgba(0, 0, 0, 0.3)) var(--scrollbar-track-color, transparent);
       }
 
-      /* Custom scrollbar styling for webkit browsers (Chrome, Safari, Edge) */
-      .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar {
+      ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar {
         width: var(--scrollbar-size, 7px);
         height: var(--scrollbar-size, 7px);
       }
 
-      .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-track {
+      ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-track {
         background: var(--scrollbar-track-color, transparent);
         border-radius: var(--scrollbar-track-radius, 4px);
       }
 
-      .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-thumb {
+      ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-thumb {
         background: var(--scrollbar-thumb-color, rgba(0, 0, 0, 0.3));
         border-radius: var(--scrollbar-thumb-radius, 4px);
         border: var(--scrollbar-thumb-border, 0);
@@ -83,30 +81,29 @@ import { ScrollbarOrientation, ScrollbarUpdateEvent } from './ngx-zoneless-scrol
         transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
       }
 
-      .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-thumb:hover {
+      ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-thumb:hover {
         background: var(--scrollbar-thumb-color-hover, rgba(0, 0, 0, 0.5));
         border: var(--scrollbar-thumb-border-hover, 0);
         box-shadow: var(--scrollbar-thumb-shadow-hover, unset);
       }
 
-      .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-thumb:active {
+      ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-thumb:active {
         background: var(--scrollbar-thumb-color-hover, rgba(0, 0, 0, 0.5));
         border: var(--scrollbar-thumb-border-hover, 0);
         box-shadow: var(--scrollbar-thumb-shadow-hover, unset);
       }
 
-      /* Orientation-specific overflow behavior */
-      :host([orientation='vertical']) .ngx-zoneless-scrollbar-viewport {
+      ngx-zoneless-scrollbar[orientation='vertical'] .ngx-zoneless-scrollbar-viewport {
         overflow-x: hidden;
         overflow-y: auto;
       }
 
-      :host([orientation='horizontal']) .ngx-zoneless-scrollbar-viewport {
+      ngx-zoneless-scrollbar[orientation='horizontal'] .ngx-zoneless-scrollbar-viewport {
         overflow-x: auto;
         overflow-y: hidden;
       }
 
-      .ngx-zoneless-scrollbar-content {
+      ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-content {
         min-height: 100%;
         min-width: 100%;
       }
