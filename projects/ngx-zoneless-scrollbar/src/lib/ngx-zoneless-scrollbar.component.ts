@@ -31,89 +31,87 @@ import { ScrollbarOrientation, ScrollbarUpdateEvent } from './ngx-zoneless-scrol
       </div>
     </div>
   `,
-  styles: [
-    `
-      ngx-zoneless-scrollbar {
-        display: block;
-        height: 100%;
-        width: 100%;
-        position: relative;
+  styles: `
+    /* Host element base styles */
+    ngx-zoneless-scrollbar {
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: relative;
 
-        /* CSS Custom Properties for easy customization */
-        --scrollbar-size: 7px;
-        --scrollbar-track-color: transparent;
-        --scrollbar-track-radius: 4px;
-        --scrollbar-thumb-color: rgba(0, 0, 0, 0.3);
-        --scrollbar-thumb-color-hover: rgba(0, 0, 0, 0.5);
-        --scrollbar-thumb-radius: 4px;
-        --scrollbar-thumb-shadow: unset;
-        --scrollbar-thumb-shadow-hover: unset;
-        --scrollbar-thumb-border: 0;
-        --scrollbar-thumb-border-hover: 0;
-      }
+      /* CSS Custom Properties - override these to customize the scrollbar */
+      --scrollbar-size: 7px;
+      --scrollbar-track-color: transparent;
+      --scrollbar-track-radius: 4px;
+      --scrollbar-thumb-color: rgba(0, 0, 0, 0.3);
+      --scrollbar-thumb-color-hover: rgba(0, 0, 0, 0.5);
+      --scrollbar-thumb-radius: 4px;
+      --scrollbar-thumb-border: 0;
+      --scrollbar-thumb-border-hover: 0;
+      --scrollbar-thumb-shadow: none;
+      --scrollbar-thumb-shadow-hover: none;
+    }
 
+    /* Viewport container */
+    ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport {
+      height: 100%;
+      width: 100%;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+    }
+
+    /* Content wrapper */
+    ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-content {
+      min-height: 100%;
+      min-width: 100%;
+    }
+
+    /* Orientation variants */
+    ngx-zoneless-scrollbar[orientation='vertical'] .ngx-zoneless-scrollbar-viewport {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    ngx-zoneless-scrollbar[orientation='horizontal'] .ngx-zoneless-scrollbar-viewport {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+
+    /* Firefox scrollbar - only when webkit is not supported */
+    @supports not selector(::-webkit-scrollbar) {
       ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport {
-        height: 100%;
-        width: 100%;
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
-        overscroll-behavior: contain;
+        scrollbar-width: thin;
+        scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
       }
+    }
 
-      /* Firefox scrollbar styling - only applied when webkit scrollbar is not supported */
-      @supports not selector(::-webkit-scrollbar) {
-        ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport {
-          scrollbar-width: thin;
-          scrollbar-color: var(--scrollbar-thumb-color, rgba(0, 0, 0, 0.3)) var(--scrollbar-track-color, transparent);
-        }
-      }
+    /* Webkit scrollbar styles (Chrome, Safari, Edge) */
+    ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar {
+      width: var(--scrollbar-size);
+      height: var(--scrollbar-size);
+    }
 
-      ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar {
-        width: var(--scrollbar-size, 7px);
-        height: var(--scrollbar-size, 7px);
-      }
+    ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-track {
+      background: var(--scrollbar-track-color);
+      border-radius: var(--scrollbar-track-radius);
+    }
 
-      ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-track {
-        background: var(--scrollbar-track-color, transparent);
-        border-radius: var(--scrollbar-track-radius, 4px);
-      }
+    ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-thumb {
+      background: var(--scrollbar-thumb-color);
+      border-radius: var(--scrollbar-thumb-radius);
+      border: var(--scrollbar-thumb-border);
+      box-shadow: var(--scrollbar-thumb-shadow);
+      transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+    }
 
-      ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-thumb {
-        background: var(--scrollbar-thumb-color, rgba(0, 0, 0, 0.3));
-        border-radius: var(--scrollbar-thumb-radius, 4px);
-        border: var(--scrollbar-thumb-border, 0);
-        box-shadow: var(--scrollbar-thumb-shadow, unset);
-        transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
-      }
-
-      ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-thumb:hover {
-        background: var(--scrollbar-thumb-color-hover, rgba(0, 0, 0, 0.5));
-        border: var(--scrollbar-thumb-border-hover, 0);
-        box-shadow: var(--scrollbar-thumb-shadow-hover, unset);
-      }
-
-      ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-thumb:active {
-        background: var(--scrollbar-thumb-color-hover, rgba(0, 0, 0, 0.5));
-        border: var(--scrollbar-thumb-border-hover, 0);
-        box-shadow: var(--scrollbar-thumb-shadow-hover, unset);
-      }
-
-      ngx-zoneless-scrollbar[orientation='vertical'] .ngx-zoneless-scrollbar-viewport {
-        overflow-x: hidden;
-        overflow-y: auto;
-      }
-
-      ngx-zoneless-scrollbar[orientation='horizontal'] .ngx-zoneless-scrollbar-viewport {
-        overflow-x: auto;
-        overflow-y: hidden;
-      }
-
-      ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-content {
-        min-height: 100%;
-        min-width: 100%;
-      }
-    `,
-  ],
+    ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-thumb:hover,
+    ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar-thumb:active {
+      background: var(--scrollbar-thumb-color-hover);
+      border: var(--scrollbar-thumb-border-hover);
+      box-shadow: var(--scrollbar-thumb-shadow-hover);
+    }
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   host: {
