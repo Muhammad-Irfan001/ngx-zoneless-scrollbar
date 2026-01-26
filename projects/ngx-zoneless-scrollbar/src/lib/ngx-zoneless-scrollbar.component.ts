@@ -58,9 +58,14 @@ import { ScrollbarOrientation, ScrollbarUpdateEvent } from './ngx-zoneless-scrol
         overflow: auto;
         -webkit-overflow-scrolling: touch;
         overscroll-behavior: contain;
+      }
 
-        scrollbar-width: thin;
-        scrollbar-color: var(--scrollbar-thumb-color, rgba(0, 0, 0, 0.3)) var(--scrollbar-track-color, transparent);
+      /* Firefox scrollbar styling - only applied when webkit scrollbar is not supported */
+      @supports not selector(::-webkit-scrollbar) {
+        ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport {
+          scrollbar-width: thin;
+          scrollbar-color: var(--scrollbar-thumb-color, rgba(0, 0, 0, 0.3)) var(--scrollbar-track-color, transparent);
+        }
       }
 
       ngx-zoneless-scrollbar .ngx-zoneless-scrollbar-viewport::-webkit-scrollbar {

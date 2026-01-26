@@ -6,7 +6,7 @@
   min-height: 100vh;
 
   .container {
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
   }
 
@@ -27,7 +27,7 @@
 
   .columns {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
     margin-bottom: 2rem;
   }
@@ -99,6 +99,48 @@
     }
   }
 
+  /* Props display styling */
+  .props-display {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    max-height: 180px;
+    overflow-y: auto;
+
+    code {
+      display: block;
+      font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+      font-size: 0.7rem;
+      color: #495057;
+      padding: 0.2rem 0;
+      line-height: 1.5;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &.dark-props {
+      background: #2d2d44;
+      border-color: #3d3d5c;
+
+      code {
+        color: #e0e0e0;
+      }
+    }
+
+    &.neon-props {
+      background: #0a0e27;
+      border-color: #00ff88;
+
+      code {
+        color: #00ff88;
+        text-shadow: 0 0 3px #00ff88;
+      }
+    }
+  }
+
   footer {
     text-align: center;
     color: white;
@@ -135,7 +177,7 @@
 
 /* Scrollbar styles - defined outside :host to apply to child components */
 .scrollbar-default {
-  height: 400px;
+  height: 300px;
   --scrollbar-size: 8px;
   --scrollbar-thumb-color: rgba(102, 126, 234, 0.5);
   --scrollbar-thumb-color-hover: rgba(102, 126, 234, 0.8);
@@ -143,7 +185,7 @@
 }
 
 .scrollbar-dark {
-  height: 400px;
+  height: 300px;
   background: #1a1a2e;
   border-radius: 8px;
   --scrollbar-size: 10px;
@@ -153,7 +195,7 @@
 }
 
 .scrollbar-thin {
-  height: 400px;
+  height: 300px;
   --scrollbar-size: 4px;
   --scrollbar-thumb-color: rgba(118, 75, 162, 0.4);
   --scrollbar-thumb-color-hover: rgba(118, 75, 162, 0.7);
@@ -161,7 +203,7 @@
 }
 
 .scrollbar-neon {
-  height: 400px;
+  height: 300px;
   background: #0a0e27;
   border-radius: 8px;
   --scrollbar-size: 14px;
@@ -173,15 +215,15 @@
 }
 
 .scrollbar-pill {
-  height: 400px;
+  height: 300px;
   --scrollbar-size: 16px;
-  --scrollbar-thumb-color: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  --scrollbar-thumb-color-hover: linear-gradient(135deg, #fa89f7 0%, #ff4757 100%);
+  --scrollbar-thumb-color: #f093fb;
+  --scrollbar-thumb-color-hover: #f5576c;
   --scrollbar-thumb-radius: 999px;
 }
 
 .scrollbar-squared {
-  height: 400px;
+  height: 300px;
   background: #f5f5f5;
   --scrollbar-size: 12px;
   --scrollbar-thumb-color: #ff6b35;
@@ -190,7 +232,7 @@
 }
 
 .scrollbar-custom {
-  height: 400px;
+  height: 300px;
   --scrollbar-size: 10px;
   --scrollbar-track-color: orange;
   --scrollbar-thumb-color: pink;

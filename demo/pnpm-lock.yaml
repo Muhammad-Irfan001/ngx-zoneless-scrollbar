@@ -27,8 +27,8 @@ importers:
         specifier: ^19.0.0
         version: 19.2.18(@angular/common@19.2.18(@angular/core@19.2.18(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/compiler@19.2.18)(@angular/core@19.2.18(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@19.2.18(@angular/animations@19.2.18(@angular/common@19.2.18(@angular/core@19.2.18(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@19.2.18(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@19.2.18(@angular/core@19.2.18(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@19.2.18(rxjs@7.8.2)(zone.js@0.15.1)))
       ngx-zoneless-scrollbar:
-        specifier: ^21.0.17
-        version: 21.0.17(@angular/common@19.2.18(@angular/core@19.2.18(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@19.2.18(rxjs@7.8.2)(zone.js@0.15.1))
+        specifier: ^21.0.18
+        version: 21.0.18(@angular/common@19.2.18(@angular/core@19.2.18(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@19.2.18(rxjs@7.8.2)(zone.js@0.15.1))
       rxjs:
         specifier: ^7.8.2
         version: 7.8.2
@@ -3134,8 +3134,8 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  ngx-zoneless-scrollbar@21.0.17:
-    resolution: {integrity: sha512-RGw02c+YcH1E3U2aGW7GFMo4d6TyODWfpN+qiE7F5jhItW3bNaNjeuVJvH7ykiYIDigW3TnTZZ5JqtZKOVW/rQ==}
+  ngx-zoneless-scrollbar@21.0.18:
+    resolution: {integrity: sha512-ctkehKPIFyal7Y//c8/B2BmCAzGcMASTbqsw+WQWPg2MCiK6jYMBLNR8i7Xdp1rok+zOoNXJhd9v4eteMQKqJA==}
     peerDependencies:
       '@angular/common': '>=19.0.0'
       '@angular/core': '>=19.0.0'
@@ -7347,7 +7347,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  ngx-zoneless-scrollbar@21.0.17(@angular/common@19.2.18(@angular/core@19.2.18(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@19.2.18(rxjs@7.8.2)(zone.js@0.15.1)):
+  ngx-zoneless-scrollbar@21.0.18(@angular/common@19.2.18(@angular/core@19.2.18(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@19.2.18(rxjs@7.8.2)(zone.js@0.15.1)):
     dependencies:
       '@angular/common': 19.2.18(@angular/core@19.2.18(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
       '@angular/core': 19.2.18(rxjs@7.8.2)(zone.js@0.15.1)
